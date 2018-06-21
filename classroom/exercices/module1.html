@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Module 1 - Exercices</title>
+</head>
+<body>
+	<script>
+		console.log('Exercicio 1')
+		// exercicio 1
+		var endereco = {
+			rua: 'Rua dos pinheiros',
+			numero: 1293,
+			bairro: 'Centro',
+			cidade: 'São Paulo',
+			uf: 'SP'
+		}
+
+		console.log('O usuário mora em ' + endereco.cidade + '/' + endereco.uf + 'no bairro ' + endereco.bairro + ', na rua "' + endereco.rua + ' com nº ' + endereco.numero + '.');
+
+		//exercico 2
+		console.log('Exercicio 2');
+		function pares(x, y) {
+			for (var i = x; i <= y; i++ ){
+				if (i % 2 === 0) {
+					console.log(i);
+				}
+			}
+		}
+		pares(32, 321);
+
+		//exercicio 3
+		console.log('Exercicio 2');
+		function temHabilidade(skills) {
+			if (skills.indexOF('Javascript') === 0){
+				var res = true;
+				return res;
+			}
+			else return false;
+		}
+
+		var skills = ['Javascript', 'ReactJS', 'React Native'];
+		temHabilidade(skills); // true ou false
+
+
+	</script>
+</body>
+</html>
