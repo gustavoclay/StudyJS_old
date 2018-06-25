@@ -98,12 +98,10 @@
 
 		function countdown(minutos) {
 			var contador = new Date();
-			contador.setHours(minutos);
-
-			for
-
+			contador.setHours(minutos).getTime();
 			console.log(contador);
 		}
+
 
 		countdown(70);
 
