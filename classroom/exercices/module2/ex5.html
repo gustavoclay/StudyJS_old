@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <h1>Exercicio 5 - DESAFIO</h1>
+    <div id="app">
+		<button onClick="">Ordenar por nome</button>
+		<button onClick="">Ordenar por idade</button>
+		
+		<button onClick="">Exibir apenas homens</button>
+		<button onClick="">Exibir apenas mulheres</button>
+		<button onClick="">Exibir todos</button>
+		
+	</div>
+    
+    <script>
+		var users = [
+			{
+				nome: 'Diego',
+				idade: 23,
+				sexo: 'M',
+			},
+			{
+				nome: 'Gabriela',
+				idade: 18,
+				sexo: 'F',
+			},
+			{
+				nome: 'José',
+				idade: 30,
+				sexo: 'M',
+			},
+			{
+				nome: 'Maria',
+				idade: 27,
+				sexo: 'F',
+			}
+		];
+
+
+		function geraLista(lista){
+			var removeLista = document.getElementById('lista');
+			if (removeLista != null) removeLista.remove(); 
+			var boxElement = document.createElement('ul');
+			boxElement.setAttribute('id', 'lista');
+			lista.forEach(function(element, index){
+				var listElement;
+				element.sexo = (element.sexo === 'M') ? 'Masculino': 'Feminino';
+				var content = document.createTextNode(element.nome + ' é ' + element.sexo +' e possui ' + element.idade +' anos');
+				listElement = document.createElement('li');
+				listElement.appendChild(content);
+				boxElement.appendChild(listElement);
+				console.log(element);
+			});
+		
+			var appElement = document.querySelector('div#app');
+			appElement.appendChild(boxElement);
+		}
+
+		geraLista(users);
+
+    </script>
+</body>
+</html>
