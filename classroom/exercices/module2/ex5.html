@@ -7,12 +7,12 @@
 <body>
     <h1>Exercicio 5 - DESAFIO</h1>
     <div id="app">
-		<button onClick="">Ordenar por nome</button>
-		<button onClick="">Ordenar por idade</button>
+		<button onClick="sortListName(users)">Ordenar por nome</button>
+		<button onClick="sortListAge(users)">Ordenar por idade</button>
 		
-		<button onClick="">Exibir apenas homens</button>
-		<button onClick="">Exibir apenas mulheres</button>
-		<button onClick="">Exibir todos</button>
+		<button onClick="sortListMan(users)">Exibir apenas homens</button>
+		<button onClick="sortListWon(users)">Exibir apenas mulheres</button>
+		<button onClick="geraLista(users);">Exibir todos</button>
 		
 	</div>
     
@@ -40,15 +40,18 @@
 			}
 		];
 
-
-		function geraLista(lista){
+		//gera lista
+		function geraLista(list){
+			var lista = list;
 			var removeLista = document.getElementById('lista');
 			if (removeLista != null) removeLista.remove(); 
 			var boxElement = document.createElement('ul');
 			boxElement.setAttribute('id', 'lista');
 			lista.forEach(function(element, index){
 				var listElement;
-				element.sexo = (element.sexo === 'M') ? 'Masculino': 'Feminino';
+				// element.sexo = (element.sexo === 'M') ? 'Masculino': 'Feminino';
+				if (element.sexo === 'M') element.sexo = 'Masculino';
+				if (element.sexo === 'F') element.sexo = 'Feminino';
 				var content = document.createTextNode(element.nome + ' é ' + element.sexo +' e possui ' + element.idade +' anos');
 				listElement = document.createElement('li');
 				listElement.appendChild(content);
@@ -59,8 +62,64 @@
 			var appElement = document.querySelector('div#app');
 			appElement.appendChild(boxElement);
 		}
-
-		geraLista(users);
+		//ordena por idade
+		function sortListAge(list){
+			var lista = list;
+			console.log(lista)
+			lista.sort(function(a,b) {
+    			if(a.idade < b.idade) return -1;
+    			if(a.idade > b.idade) return 1;
+    			return 0;
+			});
+			console.log(lista)
+			geraLista(lista);
+		}
+		//ordena por nome
+		function sortListName(list){
+			var lista = list;
+			console.log(lista)
+			lista.sort(function(a,b) {
+    			if(a.nome < b.nome) return -1;
+    			if(a.nome > b.nome) return 1;
+    			return 0;
+			});
+			console.log(lista)
+			geraLista(lista);
+		}
+		//filtra homens
+		function sortListMan(list){
+			var listaInteira = list;
+			var lista = [];
+			listaInteira.forEach(function(element, index){
+				if (element.sexo === 'M') lista.push(element);
+				console.log(element);
+			});
+			lista.sort(function(a,b) {
+    			if(a.nome < b.nome) return -1;
+    			if(a.nome > b.nome) return 1;
+    			return 0;
+			});
+			console.log(lista)
+			geraLista(lista);
+		}
+		//filtra mulheres
+		function sortListWom(list){
+			var listaInteira = users;
+			var lista = [];
+			listaInteira.forEach(function(element, index){
+				if (element.sexo === 'F') lista.push(element);
+				console.log(element);
+			});
+			lista.sort(function(a,b) {
+    			if(a.nome < b.nome) return -1;
+    			if(a.nome > b.nome) return 1;
+    			return 0;
+			});
+			console.log(lista)
+			geraLista(lista);
+		}
+		
+		sortListWom(users);
 
     </script>
 </body>
