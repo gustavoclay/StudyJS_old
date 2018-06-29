@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <h1>Exercicio 1</h1>
+    <p>Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve aparecer na tela.</p>
+    <div id="app">
+        <button id="botao">Play</button></br>
+    </div>
+    
+
+    <script>
+
+        var btnElement = document.querySelector('button#botao');
+        btnElement.onclick = function () {
+            var boxElement = document.createElement('div');
+            boxElement.setAttribute('class','retangulo')
+            boxElement.style.width = '100px';
+            boxElement.style.height = '100px';
+            boxElement.style.backgroundColor = '#F00';
+            var containerElement = document.querySelector('div#app');
+            containerElement.appendChild(boxElement);
+            console.log('Botão Cliclado');
+        }
+
+    </script>
+</body>
+</html>

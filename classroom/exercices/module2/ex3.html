@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <h1>Exercicio 3</h1>
+    <p>A partir do seguinte vetor:<br><br>
+
+			var nomes = ['Diego', 'Gabriel', 'Lucas'];<br><br>
+			
+			Preencha uma lista (tag ul) no HTML com os itens da seguinte forma:<br>
+			
+				Diego<br>
+				Gabriel<br>
+				Lucas<br>
+	<br><br>
+
+	Resposta:
+    <div id="app">
+    </div>
+    
+    <script>
+		
+        var nomes = ['Diego', 'Gabriel', 'Lucas'];
+
+		var boxElement = document.createElement('ul');
+		boxElement.setAttribute('id', 'lista');
+		nomes.forEach(function(element){
+			var listElement;
+			var content = document.createTextNode(element);
+			listElement = document.createElement('li');
+			listElement.appendChild(content);
+			boxElement.appendChild(listElement);
+			console.log(element);
+		});
+		
+		var appElement = document.querySelector('div#app');
+		appElement.appendChild(boxElement);
+		
+
+    </script>
+</body>
+</html>

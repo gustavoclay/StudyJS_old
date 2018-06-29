@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+	Seguindo o resultado do exercício anterior adicione um input em tela e um botão como a seguir:<br>
+
+	input type="text" name="nome"<br>
+	button onClick="adicionar() "Adicionar /button <br>
+	
+	Ao clicar no botão, a função adicionar() deve ser disparada adicionando um novo item a lista de nomes baseado no nome preenchido no input e renderizando o novo item em tela juntos aos demais itens anteriores. Além disso, o conteúdo do input deve ser apagado após o clique.<br><br>
+
+	Resposta:
+    <div id="app">
+		<input type="text" name="nome">
+		<button onclick="adicionar()">Adicionar</button>
+	</div>
+    
+    <script>
+		
+        var nomes = ['Diego', 'Gabriel', 'Lucas'];
+		
+		function geraLista(){
+			var boxElement = document.createElement('ul');
+			boxElement.setAttribute('id', 'lista');
+			nomes.forEach(function(element){
+				var listElement;
+				var content = document.createTextNode(element);
+				listElement = document.createElement('li');
+				listElement.appendChild(content);
+				boxElement.appendChild(listElement);
+				console.log(element);
+			});
+		
+			var appElement = document.querySelector('div#app');
+			appElement.appendChild(boxElement);
+		}
+		
+		
+		function adicionar(){
+			inputElement = document.querySelector('input[name=nome]')
+			var element = inputElement.value;
+			nomes.push(element)
+			console.log(element);
+			inputElement.value = null;
+			var lista = document.getElementById('lista');
+			lista.remove();
+			console.log(lista);
+			geraLista();
+		}
+
+		geraLista();
+
+    </script>
+</body>
+</html>
