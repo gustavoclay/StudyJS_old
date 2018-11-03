@@ -13,3 +13,6 @@
 
 # CACHE PYTHON
 __pycache__
+
+#nome_modules
+node_modules/
