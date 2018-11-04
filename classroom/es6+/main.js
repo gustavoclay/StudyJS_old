@@ -30,3 +30,13 @@ document.getElementById('novotodo').onclick = function () {
 	MinhaLista.add('Novo Todo');
 	MinhaLista.mostraUsuario();
 };
+
+
+class Matematica {
+	static soma(a, b) {
+		return a + b;
+	}
+}
+
+
+console.log(Matematica.soma(1, 2));
