@@ -34,11 +34,10 @@ document.querySelector(".form").addEventListener("submit", function (event) {
 
 
 	campos[0] = '';
-	console.log(	campos[0]);
 	campos[1] = 1;
 	campos[2] = 0;
 
-	campo[0].focus();
+	campos[0].focus();
 
 
 
